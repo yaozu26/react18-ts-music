@@ -1,0 +1,13 @@
+root = true
+
+[*] # 表示所有文件适用
+charset = utf-8
+indent_style = space #缩进风格
+indent_size = 2
+end_of_line = lf # 控制换行类型
+trim_trailing_whitespace = true # 去除行尾空白符
+insert_final_newline = true # 文件末尾插入新行
+
+[*.md] # 仅md文件适应
+max_line_length = off
+trim_trailing_whitespace = false
