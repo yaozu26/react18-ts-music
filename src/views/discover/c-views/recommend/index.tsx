@@ -1,12 +1,26 @@
-import React, { memo } from 'react'
-import type { ReactNode } from 'react'
+import { useAppDispatch } from '@/store'
+import { fetchBannerDataAction } from '@/store/modules/discover/recommend'
+import React, { memo, useEffect } from 'react'
+import type { FC, ReactNode } from 'react'
+import TopBanner from './c-cpns/top-banner'
 
 interface IProps {
   children?: ReactNode
 }
 
-const Recommend: React.FC<IProps> = (props) => {
-  return <div>Recommend</div>
+const Recommend: FC<IProps> = () => {
+  // 发起action（获取数据）
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(fetchBannerDataAction())
+  }, [])
+
+  // render函数返回的jsx
+  return (
+    <div>
+      <TopBanner />
+    </div>
+  )
 }
 
 export default memo(Recommend)

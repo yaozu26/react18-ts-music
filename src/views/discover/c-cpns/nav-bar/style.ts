@@ -1,19 +1,19 @@
 import styled from 'styled-components'
 
 export const NavBarWrapper = styled.div`
-  position: relative;
-  top: -4px;
-  height: 35px;
+  height: 30px;
   background-color: ${(props) => props.theme.color.primary};
+
   .nav {
     .top {
       display: flex;
       padding-left: 180px;
+
       .item {
         a {
           display: inline-block;
           height: 20px;
-          margin: 7px 17px 0;
+          margin: 2px 17px 0;
           padding: 0 13px;
           line-height: 20px;
           font-size: 12px;
