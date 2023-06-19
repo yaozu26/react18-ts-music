@@ -26,7 +26,7 @@ export const BannerLeft = styled.div`
     display: flex;
     justify-content: center;
 
-    > li {
+    li {
       margin: 0 2px;
 
       .item {

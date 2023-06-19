@@ -1,5 +1,7 @@
-import { getBanners } from '@/service/modules/discover/recommend'
+import { getBanners, getHotRecommend } from '@/service/modules/discover/recommend'
+import { IPersonalized } from '@/types/discover/recommend'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
 
 // export const fetchBannerDataAction = createAsyncThunk('banners', async () => {
 //   const res: any = await getBanners()
@@ -11,12 +13,20 @@ export const fetchBannerDataAction = createAsyncThunk('banners', async (arg, { d
   dispatch(changeBannersAction(res.banners))
 })
 
+export const fetchHotRecommendsAction = createAsyncThunk('hotRecommends', (param, { dispatch }) => {
+  getHotRecommend(8).then((res: any) => {
+    dispatch(changeHotRecommendsAction(res.result))
+  })
+})
+
 interface IRecommend {
   banners: any[]
+  hotRecommends: IPersonalized[]
 }
 
 const initialState: IRecommend = {
-  banners: []
+  banners: [],
+  hotRecommends: []
 }
 
 const recommendSlicer = createSlice({
@@ -25,6 +35,9 @@ const recommendSlicer = createSlice({
   reducers: {
     changeBannersAction(state, { payload }) {
       state.banners = payload
+    },
+    changeHotRecommendsAction(state, { payload }: PayloadAction<IPersonalized[]>) {
+      state.hotRecommends = payload
     }
   }
   // extraReducers: (builder) => {
@@ -41,5 +54,5 @@ const recommendSlicer = createSlice({
   // }
 })
 
-export const { changeBannersAction } = recommendSlicer.actions
+export const { changeBannersAction, changeHotRecommendsAction } = recommendSlicer.actions
 export default recommendSlicer.reducer

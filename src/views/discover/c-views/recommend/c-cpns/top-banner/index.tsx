@@ -50,7 +50,7 @@ const TopBanner: FC<IProps> = () => {
     <TopBannerWrapper style={{ background: `url('${bgImgUrl}') center center / 6000px` }}>
       <div className="banner wrap-v2">
         <BannerLeft>
-          <Carousel ref={carouselRef} dots={false} beforeChange={onCarouselBeforechange}>
+          <Carousel ref={carouselRef} dots={false} beforeChange={onCarouselBeforechange} autoplay>
             {banners.map((item) => {
               return (
                 <a href="#" key={item.imageUrl}>
