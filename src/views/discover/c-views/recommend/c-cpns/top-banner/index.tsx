@@ -1,10 +1,10 @@
 import React, { memo, useCallback, useRef, useState } from 'react'
 import { Carousel } from 'antd'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
+import type { FC, ReactNode, ElementRef } from 'react'
 import { TopBannerWrapper, BannerLeft, BannerRight, BannerControll } from './style'
 import { useAppSelector, shallowEqual } from '@/store'
-import type { FC, ReactNode, ElementRef } from 'react'
-import classNames from 'classnames'
 
 interface IProps {
   children?: ReactNode
@@ -59,6 +59,7 @@ const TopBanner: FC<IProps> = () => {
               )
             })}
           </Carousel>
+
           {/* 轮播图指示器 */}
           <ul className="dots">
             {banners.map((item, index) => (

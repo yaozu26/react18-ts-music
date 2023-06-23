@@ -15,13 +15,13 @@ const SongMenuItem: FC<IProps> = memo((props: IProps) => {
     <RootWrapper>
       <div className="top">
         <img src={getImageSize(itemData.picUrl, 140)} alt="" />
-        <div className="cover sprite_cover">
-          <div className="info sprite_cover">
+        <div className="cover cover-all">
+          <div className="info cover-all">
             <span>
-              <i className="sprite_icon headset"></i>
+              <i className="icon-all headset"></i>
               <span className="count">{formatCount(itemData.playCount)}</span>
             </span>
-            <i className="sprite_icon play"></i>
+            <i className="icon-all play"></i>
           </div>
         </div>
       </div>

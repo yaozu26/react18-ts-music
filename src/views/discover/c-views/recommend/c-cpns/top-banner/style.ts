@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const TopBannerWrapper = styled.div`
   height: 285px;
-  .banner {
+  > .banner {
     position: relative;
     display: flex;
   }
