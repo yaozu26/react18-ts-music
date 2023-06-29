@@ -108,4 +108,5 @@ export const {
   changeTopRankingAction,
   changeSingerDataAction
 } = recommendSlicer.actions
+
 export default recommendSlicer.reducer

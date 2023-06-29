@@ -41,7 +41,7 @@ const TopBanner: FC<IProps> = () => {
 
   // 背景图片
   const bgImgUrl =
-    currentIndex >= 0 && banners.length > 0
+    currentIndex >= 0 && banners?.length > 0
       ? banners[currentIndex].imageUrl + '?imageView&blur=40x20'
       : ''
 
@@ -51,7 +51,7 @@ const TopBanner: FC<IProps> = () => {
       <div className="banner wrap-v2">
         <BannerLeft>
           <Carousel ref={carouselRef} dots={false} beforeChange={onCarouselBeforechange} autoplay>
-            {banners.map((item) => {
+            {banners?.map((item) => {
               return (
                 <a href="#" key={item.imageUrl}>
                   <img src={item.imageUrl} alt={item.typeTitle} />
@@ -62,8 +62,8 @@ const TopBanner: FC<IProps> = () => {
 
           {/* 轮播图指示器 */}
           <ul className="dots">
-            {banners.map((item, index) => (
-              <li key={item.imageUrl}>
+            {banners?.map((item, index) => (
+              <li key={item?.imageUrl}>
                 <span
                   className={classNames('item', { active: index === currentIndex })}
                   onClick={() => onDotClick(index)}

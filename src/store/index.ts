@@ -1,15 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import recommednSlicer from './modules/discover/recommend'
+import playerSlicer from './modules/player/player'
 import { useSelector, TypedUseSelectorHook, useDispatch, shallowEqual } from 'react-redux'
 
 const store = configureStore({
   reducer: {
-    recommend: recommednSlicer
+    recommend: recommednSlicer,
+    player: playerSlicer
   }
 })
 
 type GetStateType = typeof store.getState
-type IRootState = ReturnType<GetStateType>
+export type IRootState = ReturnType<GetStateType>
 type DispatchType = typeof store.dispatch
 
 export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
